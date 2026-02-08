@@ -1,0 +1,75 @@
+:host {
+  display: contents;
+  width: auto;
+  height: 100vh;
+}
+
+.scroll-container {
+  height: calc(100vh - 130px);
+  overflow: auto;
+  position: relative;
+}
+
+.ticket-layout {
+  position: relative;
+  width: 100%;
+  height: calc(100vh - 130px);
+  transition: margin-right 0.3s ease-out;
+
+  &.with-sidepanel {
+    margin-right: 500px;
+  }
+}
+
+.sidepanel-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 500px;
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-end;
+  animation: slideInRight 0.3s ease-out;
+  pointer-events: auto;
+  background: var(--color-bg-neutral-default, #1A2C47);
+}
+
+.sidepanel-container {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-neutral-default, #1A2C47);
+  border-left: 1px solid var(--color-border-neutral-default, rgba(255, 255, 255, 0.26));
+  box-shadow: -4px 0 24px rgba(0, 0, 0, 0.3);
+  overflow: hidden;
+}
+
+@keyframes slideInRight {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.scroll-container ngt-table-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background: var(--color-background-container-default);
+}
+
+ngt-table-row {
+  cursor: pointer;
+}
+
+ngt-table-row:hover,
+ngt-table-row.selected {
+  background-color: var(--color-background-isSecondarySelected, rgba(20, 130, 255, 0.54));
+}
+
+.empty,
+.error {
+  padding: 12px 16px;
+}

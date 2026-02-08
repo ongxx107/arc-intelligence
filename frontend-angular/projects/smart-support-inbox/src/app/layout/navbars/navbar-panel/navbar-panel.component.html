@@ -1,0 +1,12 @@
+
+<div class="expand-container">
+  <div class="expand-button" (click)="toggleExpanded()">
+    @if (navbarService.expanded()) {
+      <mat-icon>keyboard_arrow_left</mat-icon>
+    } @else {
+      <mat-icon>keyboard_arrow_right</mat-icon>
+    }
+  </div>
+</div>
+
+<ng-content />

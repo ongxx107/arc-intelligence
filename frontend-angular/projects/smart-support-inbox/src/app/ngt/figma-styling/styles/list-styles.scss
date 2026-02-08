@@ -1,0 +1,23 @@
+@use '@angular/material' as mat;
+
+:root, .light-mode, .dark-mode{
+
+    --mat-list-active-indicator-shape: var(--size-radius-comp, 4px);
+
+    @include mat.sidenav-overrides((
+        container-shape: 0px,
+        container-width: auto,
+        container-background-color: var(--color-background-container-default),
+        container-divider-color: var(--ngt-color-transparent),
+        container-text-color: var(--color-text-neutral-default),
+        content-text-color: var(--color-text-neutral-default),
+        scrim-color: var(--color-background-container-default), // overlay behind open sidenav
+    ))
+}
+
+:root, .light-mode, .dark-mode{
+
+    mat-list-item:hover, mat-list-item:focus, mat-list-item:active{
+        --mdc-list-list-item-container-color: var(--color-background-primary-muted-default);
+    }
+}

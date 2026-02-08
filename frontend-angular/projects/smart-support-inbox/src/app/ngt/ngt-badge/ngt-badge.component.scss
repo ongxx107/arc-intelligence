@@ -1,0 +1,70 @@
+:host{
+    display: inline-block;
+    width: max-content;
+    height: max-content;
+    align-self: center;
+    justify-self: center;
+    flex-shrink: 0;
+}
+
+.ngt-badge {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: var(--ngt-radius-round, 100px);
+    min-width: max-content;
+    width: max-content;
+    
+    /* typography/Text S Bold */
+    text-align: center; 
+    font-family: var(--mdc-outlined-button-label-text-font, var(--mat-app-label-large-font));
+    font-style: normal;
+    font-weight: 600;
+}
+
+.ngt-medium-badge{
+    font-size: var(--size-fontsize-s, 14px);
+    line-height: var(--size-icon-s, 18px);
+    gap: var(--spacing-gap-component-standard, 8px);
+    padding: var(--spacing-padding-component-dense, 8px) var(--spacing-padding-component-narrow, 12px);
+
+
+    &.ngt-dot-badge{
+        min-width: 0px;
+        padding: var(--spacing-padding-component-dense, 8px);
+    }
+
+    &:not(ngt-dot-badge){
+        min-width: calc(var(--size-icon-s, 18px) + var(--spacing-padding-component-dense, 8px) * 2);
+    }
+}
+
+.ngt-small-badge{
+    font-size: var(--size-fontsize-xs, 12px);
+    line-height: normal;
+    gap: var(--spacing-gap-component-dense, 4px);
+    padding: var(--spacing-padding-component-minimal, 4px) var(--spacing-padding-component-dense, 8px);
+
+
+    &:not(.ngt-dot-badge){   
+        height: var(--size-height-formcomp-valuecontainer-s, 24px);
+        min-width: var(--size-height-formcomp-valuecontainer-s, 24px);
+    }
+    &.ngt-dot-badge{
+        min-width: 0px;
+        padding: var(--spacing-padding-component-minimal, 4px);
+    }
+}
+
+.ngt-filled-badge, .ngt-dot-badge {
+    background: var(--ngt-status-color);
+    color: var(--ngt-status-color-text);
+    --mat-icon-color: var(--ngt-status-color-text);
+    --mat-badge-background-color: var(--ngt-status-color);
+    --mat-badge-text-color: var(--ngt-status-color-text);
+}
+.ngt-stroked-badge {
+    border: var(--size-border-highlight, 2px) solid var(--ngt-status-color);
+    color:var(--color-signal-neutral-contrast);
+    --mat-icon-color: var(--color-signal-neutral-contrast);
+}

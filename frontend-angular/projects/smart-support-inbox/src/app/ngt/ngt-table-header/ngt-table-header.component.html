@@ -1,0 +1,40 @@
+
+<div class="header-bar">
+  <div class="dropzone-header-bar" cdkDropList (cdkDropListDropped)="onHeaderDropped($event)" cdkDropListOrientation="horizontal">
+    @for (column of visibleColumns(); track column) {
+      <div class="data-cell heading draggable" [style]="'width:' + displayedColumnWidths()[column] + 'px'" cdkDrag>
+        {{ columnMap()[column].label() }}
+        @if (sortableColumns().has(column)) {
+          <button class="invisible sort-button" [class.enabled]="sortColumn() === column" [class.descending]="sortDirection() === 'desc'" (click)="onSortButtonClicked(column)"><ngt-button shape="square" scale="mini" matIcon="arrow_upward" /></button>
+        }
+        <div class="pad"></div>
+      </div>
+      <div class="data-cell-resizer-anchor" (mousedown)="onResizeBegin(column); $event.preventDefault()">
+        <div class="data-cell-resizer" [style]="'z-index:' + resizerZIndex() + ';'"></div>
+      </div>
+    }
+  </div>
+  <div class="data-cell fixed-size heading" style="width: 72px;">
+    <button class="invisible" [matMenuTriggerFor]="columnConfigMenu">
+      <ngt-button styling="tertiary" shape="square" matIcon="more_vert" />
+    </button>
+  </div>
+</div>
+
+<mat-menu #columnConfigMenu [xPosition]="'before'" class="white-background" (click)="$event.stopPropagation()">
+  <button mat-menu-item (click)="resetColumnWidth(null); $event.stopPropagation();">autoColumnWidth</button>
+  <div cdkDropList (cdkDropListDropped)="onHeaderDropped($event)">
+    @for (column of visibleColumns(); track column) {
+      <div mat-menu-item cdkDrag [cdkDragData]="column" (click)="$event.stopPropagation()">
+        <mat-checkbox [disabled]="columnMap()[column].mandatory" [checked]="true" (change)="setColumnEnabled(column, $event.checked)" (click)="$event.stopPropagation()">{{ columnMap()[column].label() }}</mat-checkbox>
+        <mat-icon class="draggable">drag_handle</mat-icon>
+      </div>
+    }
+    @for (column of invisibleColumns(); track column) {
+      <div mat-menu-item cdkDrag [cdkDragData]="column" (click)="$event.stopPropagation()">
+        <mat-checkbox [checked]="false" (change)="setColumnEnabled(column, $event.checked)" (click)="$event.stopPropagation()">{{ columnMap()[column].label() }}</mat-checkbox>
+        <mat-icon class="draggable">drag_handle</mat-icon>
+      </div>
+    }
+  </div>
+</mat-menu>

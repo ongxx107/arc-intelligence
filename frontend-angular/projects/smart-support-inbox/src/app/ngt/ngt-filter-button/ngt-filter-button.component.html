@@ -1,0 +1,60 @@
+<mat-select
+    class="ngt-grid-1-1 ngt-hidden"
+    hideSingleSelectionIndicator  
+    [panelClass]="ngtButton().themeMode()+' ngt-width-hug'" 
+    [panelWidth]="panelWidth() || null"
+    placeholder="" 
+    [multiple]="multiple()" 
+    [(value)]="value"
+    [disabled]="disabled() || isReadonly()"
+    (closed)="ngtButton().deselect()"
+    #ngtselectmenu
+> 
+
+    <mat-select-trigger ></mat-select-trigger>
+    @if(nullOption()!== undefined){
+        <mat-option [class.ngt-compact-menu-item]="height()==='small'">
+            {{nullOption()}}
+        </mat-option>
+    }
+    @for (option of options(); track option){
+        @if(isNamedOptionGroup(option)){
+            <mat-optgroup [label]="(option.name)">
+                @for (suboption of option.options; track suboption){
+                    <mat-option [value]="suboption.key" [class.ngt-compact-menu-item]="height()==='small'">
+                        @if((suboption | ngtMatIcon) || (suboption.svgIcon) ){
+                            <mat-icon [svgIcon]="suboption | ngtSvgIcon">{{suboption | ngtMatIcon}}</mat-icon>
+                        }
+                        {{suboption.label}}
+                    </mat-option>
+                }
+            </mat-optgroup>
+        } @else {
+            <mat-option [value]="option.key" [class.ngt-compact-menu-item]="height()==='small'">
+                @if((option | ngtMatIcon) || (option| ngtSvgIcon) ){
+                    <mat-icon [svgIcon]="option | ngtSvgIcon">{{option | ngtMatIcon}}</mat-icon>
+                }
+                {{option.label}}
+            </mat-option>
+        }
+    }
+</mat-select>
+<!-- button needs to be in front or the animations will not work correctly -->
+<ngt-button class="ngt-grid-1-1" 
+    [class.ngt-button-content-selected]="(!value() || value()!.length<1)? false : true"
+    selectable="true" 
+    (selectedChange)="$event? matSelect().open(): null" 
+    [styling]="styling()"
+    [shape]="shape()"
+    [scale]="scale()"
+    [matIcon]="matIcon()"
+    [svgIcon]="svgIcon()"
+    [iconPosition]="iconPosition()"
+    [menuArrow]="menuArrow()"
+    [counter]="showCounter()?counter():null"
+    [type]="type()"
+    [disabled]="disabled()"
+    #ngtselectbutton
+    >
+    <ng-content />
+</ngt-button>

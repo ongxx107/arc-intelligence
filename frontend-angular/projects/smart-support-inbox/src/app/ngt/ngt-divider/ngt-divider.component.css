@@ -1,0 +1,12 @@
+:host.ngt-horizontal-divider{
+    display: inline-block;   
+    height: fit-content;
+    width: 100%;
+}
+:host.ngt-vertical-divider{
+    display: inline-flex;
+    width:fit-content;
+}
+.ngt-divider-medium{
+    --mat-divider-width: 2px;
+}

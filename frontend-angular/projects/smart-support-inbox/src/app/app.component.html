@@ -1,0 +1,15 @@
+
+@if(authenticated()){
+
+  <tlm-main-layout />
+
+} @else {
+    
+  <div class="dark-mode ngt-flex-column ngt-padding-standard ngt-gap-standard ngt-size-max">
+    <span>Welcome</span>
+    <h1> {{ title }}</h1>
+    
+    <ngt-button (ngtClick)="authenticated.set(true)"><mat-icon>login</mat-icon>Login</ngt-button>
+  </div>
+  
+}

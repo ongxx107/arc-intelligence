@@ -1,0 +1,131 @@
+
+:host {
+  display: flex;
+  max-width: 100%;
+  width: 100%;
+}
+
+.header-bar {
+  width: 100%;
+  max-width: 100%;
+  height: var(--size-comp-m, 56px);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  border-bottom: var(--size-border-highlight, 2px) solid var(--color-border-neutral-default, rgba(0, 0, 0, 0.26));
+}
+
+.dropzone-header-bar {
+  display: flex;
+  width: 0;
+  flex-direction: row;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 1;
+  max-width: calc(100% - 72px); // The menu_more_vert-button at the end of the header bar is 72px wide
+}
+
+.heading {
+  text-align: left;
+  display: flex;
+  flex-direction: row;
+  gap: var(--spacing-gap-component-standard, 8px);
+
+  overflow: hidden;
+  color: var(--color-text-neutral-default, #FFF);
+  font-feature-settings: 'liga' off, 'clig' off;
+  text-overflow: ellipsis;
+
+  /* typography/Text M Medium */
+  font-family: var(--primitives-global-font-fontfamily, Inter);
+  font-size: var(--size-font-m, 16px);
+  font-style: normal;
+  font-weight: var(--primitives-global-font-fontweightmedium, 600);
+  line-height: 125%; /* 20px */
+}
+
+.pad {
+  flex-grow: 1;
+}
+
+.data-cell {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 1;
+  flex-grow: 1;
+  padding: 0 var(--spacing-padding-component-standard, 16px);
+  position: relative;
+}
+
+// fixed-size means this column does not grow or shrink to fit the flexbox container
+.data-cell.fixed-size {
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.invisible {
+  background: none;
+  border: none;
+  outline: none;
+  margin: 0;
+}
+
+.sort-button, .more-button {
+  opacity: 0;
+  transition: 200ms;
+}
+
+.heading:hover .sort-button {
+  opacity: .6;
+}
+
+.heading:hover .more-button {
+  opacity: 1;
+}
+
+.heading .sort-button.enabled {
+  opacity: 1;
+}
+
+.sort-button.descending, .sort-button .descending {
+  transform: rotate(180deg);
+}
+
+.data-cell-resizer-anchor {
+  position: relative;
+  height: 48px;
+  opacity: 0;
+  transition: 200ms;
+}
+
+.header-bar:hover .data-cell-resizer-anchor {
+  opacity: 1;
+}
+
+.data-cell-resizer {
+  position: absolute;
+  height: 48px;
+  width: 11px;
+  min-width: 11px;
+  left: -5px;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: center;
+  cursor: ew-resize;
+}
+
+.data-cell-resizer::after {
+  content: '';
+  height: 48px;
+  width: 1px;
+  background: var(--color-background-neutral-contrast-default, rgba(0, 0, 0, 0.38));
+}
+
+.draggable {
+  cursor: move;
+}

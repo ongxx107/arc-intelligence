@@ -1,0 +1,29 @@
+.ngt-status-error{
+    --ngt-status-color: var(--color-signal-error-main, #FF5900);
+    --ngt-status-color-text: var(--color-signal-error-contrast);
+    --ngt-status-color-contrast: var(--color-signal-error-contrast);
+}
+
+.ngt-status-warn{
+    --ngt-status-color: var(--color-signal-warning-main, #FFC600);
+    --ngt-status-color-text: var(--color-signal-warning-contrast);
+    --ngt-status-color-contrast: var(--color-signal-warning-contrast);
+}
+
+.ngt-status-success{
+    --ngt-status-color: var(--color-signal-success-main, #44AF66);
+    --ngt-status-color-text: var(--color-signal-success-contrast);
+    --ngt-status-color-contrast: var(--color-signal-success-contrast);
+}
+
+.ngt-status-info{
+    --ngt-status-color: var(--color-signal-info-main, #72B4FF);
+    --ngt-status-color-text: var(--color-signal-info-contrast);
+    --ngt-status-color-contrast: var(--color-signal-info-contrast);
+}
+
+.ngt-status-neutral{
+    --ngt-status-color: var(--color-signal-neutral-main);
+    --ngt-status-color-text: var(--color-signal-neutral-contrast);
+    --ngt-status-color-contrast: var(--color-signal-neutral-contrast);
+}

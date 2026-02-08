@@ -1,0 +1,33 @@
+
+:host {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-layout-minimal, 4px);
+  align-items: stretch;
+
+  height: 0;
+  flex-grow: 1;
+
+  transition: 300ms;
+}
+
+.expand-container {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.expand-button {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  display: flex;
+  padding: var(--spacing-padding-component-dense, 8px) var(--spacing-padding-component-standard, 16px);
+  align-items: center;
+  border-radius: var(--size-radius-comp, 4px);
+
+  cursor: pointer;
+  transition: 300ms;
+}
+
+.expand-button:hover {
+  background: var(--color-background-isSecondarySelected, rgba(20, 130, 255, 0.54));
+}

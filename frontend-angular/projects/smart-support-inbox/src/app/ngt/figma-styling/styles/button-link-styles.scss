@@ -1,0 +1,369 @@
+@use '@angular/material' as mat;
+
+// Overrides and colors
+:root, .light-mode,
+.dark-mode {
+
+  --link-height-medium: calc(var(--size-font-m, 16px) * var(--primitives-global-font-lineheightlow, 1.25) + 2.0 * var(--spacing-padding-component-minimal, 4px));
+  
+  @include mat.button-overrides(( 
+      //<button mat-raised-button /> => Primary button
+      protected-container-height: var(--size-comp-s, 48px),
+      protected-container-shape: var(--size-radius-comp, 4px),
+      protected-horizontal-padding: var(--spacing-padding-component-standard, 16px),
+      protected-icon-spacing: var(--spacing-gap-component-standard, 8px),
+
+      protected-label-text-font: Inter,
+      protected-label-text-size: var(--size-fontsize-m, 16px),
+      protected-label-text-weight:600,
+
+      protected-container-color: var(--color-background-primary-default),
+      protected-label-text-color: var(--color-text-primary-onprimary),
+
+       // no shadow elevation for all states except of hover
+      protected-container-elevation-shadow: var(--ngt-shadow-none),
+      protected-hover-container-elevation-shadow: var(--ngt-shadow-button-hover),
+      protected-focus-container-elevation-shadow:  var(--ngt-shadow-none), 
+      protected-pressed-container-elevation-shadow:  var(--ngt-shadow-none), 
+      protected-disabled-container-elevation-shadow:  var(--ngt-shadow-none), 
+
+      protected-state-layer-color: rgb( from var(--color-background-primary-active) r g b / 100%), 
+      protected-hover-state-layer-opacity: var(--ngt-primary-hover-opacity), 
+      protected-focus-state-layer-opacity: var(--ngt-primary-focus-opacity), 
+      protected-pressed-state-layer-opacity: 0,
+      protected-ripple-color: var(--color-background-primary-active), 
+
+      protected-disabled-container-color: var(--color-background-primary-disabled),
+      protected-disabled-label-text-color: var(--color-text-ondisabled),
+
+      //<button mat-stroked-button />  => Alternative Buttons
+      outlined-container-height: var(--size-comp-s, 48px),
+      outlined-container-shape: var(--size-radius-comp, 4px),
+      outlined-horizontal-padding: var(--spacing-padding-component-standard, 16px),
+      outlined-icon-spacing: var(--spacing-gap-component-standard, 8px),
+
+      outlined-label-text-font: Inter,
+      outlined-label-text-size: var(--size-fontsize-m, 16px),
+      outlined-label-text-weight: 600,
+
+      outlined-outline-width: var(--size-border-standard, 1px),
+      outlined-outline-color: var(--color-border-primary-default),
+      outlined-label-text-color: var(--md-sys-on-color-secondary-container),
+
+      outlined-state-layer-color: rgb( from var(--color-background-primary-muted-active) r g b / 100%), 
+      outlined-hover-state-layer-opacity: var(--ngt-primary-muted-hover-opacity), 
+      outlined-focus-state-layer-opacity: var(--ngt-primary-muted-focus-opacity), 
+      outlined-pressed-state-layer-opacity: 0, 
+      outlined-ripple-color: var(--color-background-primary-muted-active),
+
+      outlined-disabled-outline-color: var(--color-border-disabled),
+      outlined-disabled-label-text-color: var(--color-text-ondisabled),
+
+      //<button mat-button /> => used as link component
+      text-container-height: var(--link-height-medium, 28px),
+      text-container-shape: var(--size-radius-comp, 4px),
+      text-with-icon-horizontal-padding: var(--spacing-padding-component-minimal, 4px),
+      text-horizontal-padding: var(--spacing-padding-component-minimal, 4px),
+      text-icon-spacing: var(--spacing-gap-component-dense, 4px),
+
+      text-label-text-size:var(--size-fontSize-m, 16px),
+      text-label-text-weight: var(--primitives-global-font-fontweightmedium, 600),
+
+      text-label-text-color: var(--color-text-neutral-onneutral),
+
+      text-state-layer-color: rgb( from var(--color-background-neutral-hover) r g b / 100%), 
+      text-hover-state-layer-opacity: var(--ngt-neutral-hover-opacity), 
+      text-focus-state-layer-opacity: var(--ngt-neutral-focus-opacity), 
+      text-pressed-state-layer-opacity: 0, 
+      text-ripple-color: var(--color-background-neutral-active),
+
+      text-disabled-label-text-color: var(--color-text-ondisabled),
+
+      //<button mat-flat-button => tertiary button
+      filled-container-height: var(--size-comp-xs, 40px),
+      filled-container-shape: var(--size-radius-comp, 4px),
+      filled-icon-spacing: var(--spacing-gap-component-standard, 8px),
+      filled-horizontal-padding: var(--spacing-padding-component-dense, 8px),
+
+      filled-label-text-size: var(--size-fontsize-s, 14px),
+      filled-label-text-weight: var(--primitives-global-font-fontweightregular, 400),
+
+      filled-label-text-color: var(--color-text-primary-onprimarymuted),
+      filled-container-color: var(--color-background-primary-muted-default),
+
+      filled-state-layer-color: rgb( from var(--color-background-primary-muted-active) r g b / 100%), 
+      filled-hover-state-layer-opacity: var(--ngt-primary-muted-hover-opacity), 
+      filled-focus-state-layer-opacity: var(--ngt-primary-muted-focus-opacity), 
+      filled-pressed-state-layer-opacity: 0, 
+      filled-ripple-color: var(--color-background-primary-muted-active), //var(--ngt-tertiary-active-background-color),
+
+      filled-disabled-container-color: var(--color-background-primary-disabled),
+      filled-disabled-label-text-color: var(--color-text-ondisabled),
+
+      ));
+
+  ngt-button.ngt-button-content-selected{
+    border-radius: var(--ngt-radius-comp, 4px);
+    border: 1px solid var(--color-border-neutral-contrast-default);
+  }
+
+  // secondary button color variant
+  .mdc-button.ngt-secondary-button,
+  .mdc-button.ngt-muted-button{
+    @include mat.button-overrides ((
+        //<button mat-raised-button class="ngt-secondary-button" /> => Secondary button
+        protected-container-color: var(--color-background-primary-muted-default),
+        protected-label-text-color: var(--color-text-primary-onprimarymuted),
+        
+        protected-container-elevation-shadow: var(--ngt-shadow-none), // none for all states except of hover
+        protected-hover-container-elevation-shadow: var(--ngt-shadow-button-hover),
+        protected-state-layer-color: rgb( from var(--color-background-primary-muted-active) r g b / 100%), 
+        protected-hover-state-layer-opacity: var(--ngt-primary-muted-hover-opacity), 
+        protected-focus-state-layer-opacity: var(--ngt-primary-muted-focus-opacity), 
+        protected-pressed-state-layer-opacity: 0, 
+        protected-ripple-color:  var(--color-background-primary-muted-active), //var(--ngt-secondary-active-background-color),
+
+        protected-disabled-container-color: var(--color-background-primary-disabled),
+        protected-disabled-label-text-color: var(--color-text-ondisabled),
+
+        //<button mat-flat-button class="ngt-secondary-button" /> => backup
+        filled-label-text-color: var(--color-text-primary-onprimarymuted),
+        filled-container-color: var(--color-background-primary-muted-default),
+
+        filled-state-layer-color: rgb( from var(--color-background-primary-muted-active) r g b / 100%), 
+        filled-hover-state-layer-opacity: var(--ngt-primary-muted-hover-opacity), 
+        filled-focus-state-layer-opacity: var(--ngt-primary-muted-focus-opacity), 
+        filled-pressed-state-layer-opacity: 0, 
+        filled-ripple-color: var(--color-background-primary-muted-active), //var(--ngt-secondary-active-background-color),
+
+        filled-disabled-container-color: var(--color-background-primary-disabled),
+        filled-disabled-label-text-color: var(--color-text-ondisabled),
+      ));
+  }
+
+}
+
+.mdc-button.mat-mdc-outlined-button{
+  background-color: var(--color-background-primary-muted-default);
+  .mat-ripple.mat-mdc-button-ripple{
+    margin: var(--size-border-standard, 1px);
+  }
+}
+
+.mdc-button.mat-mdc-unelevated-button.ngt-tertiary-button:not(:hover):not(:focus):not(:active):not(:disabled):not(.ngt-selected-button), 
+.mdc-button.mat-mdc-outlined-button:not(:hover):not(:focus):not(:active):not(.ngt-selected-button),
+.mdc-button.mat-mdc-unelevated-button.ngt-tertiary-button:disabled {
+  background: var(--ngt-color-transparent);
+}
+
+
+.mdc-button.mat-mdc-button:not(:disabled):not(.ngt-secondary-button):not(.ngt-muted-button):hover, 
+.mdc-button.mat-mdc-button:not(:disabled):not(.ngt-secondary-button):not(.ngt-muted-button):focus, 
+.mdc-button.mat-mdc-button:not(:disabled):not(.ngt-secondary-button):not(.ngt-muted-button):active {
+  background: var(--color-background-neutral-default);
+}
+
+// combine focus background with hover shadow
+.mat-mdc-raised-button:focus:hover {
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.60);
+}
+
+.mat-mdc-raised-button:focus:not(:hover):not(ngt-tertiary-button) {
+  box-shadow: 0px 0px 6px 0px rgba(0, 0, 0, 0.0);
+}
+
+// Common button settings
+button.mdc-button,
+button.mdc-button.mat-mdc-menu-trigger {
+  /* disable icon offset of material buttons or paddings will not be symmetrical*/
+  --mat-protected-button-icon-offset: 0px;
+  --mat-outlined-button-icon-offset: 0px;
+  --mat-text-button-icon-offset: 0px;
+  --mat-filled-button-icon-offset: 0px;
+
+  // /* disable browser styling changes for links */
+  // -webkit-appearance: none;
+  // appearance: none;
+
+  &:not(ngt-square-button){
+    .mat-mdc-raised-button,  
+    .mat-mdc-outlined-button{
+    min-width: var(--size-minwidth-formcomp, 80px);
+    }
+    &.mdc-flat-button{
+      min-width: var(--size-minwidth-comp, 40px);
+    }
+  }
+
+  &.ngt-long-button{
+    width: 100%;
+  }
+
+  .mdc-button__label{ 
+    white-space: nowrap;
+  }
+  
+  &.ngt-selected-button{
+    background-color: var(--color-background-primary-default);
+    color: var(--color-text-primary-onprimary);
+    .mat-icon{
+      color: var(--color-icon-primary-onprimary);
+    }
+  }
+}
+
+// Mat-icon is calculated material internally as 1.125rem, so we need to adapt it hard
+button.mdc-button .mat-icon, 
+button.mdc-button svg{
+  font-size: var(--size-icon-action-m, 20px);
+  line-height: var(--size-icon-action-m, 20px);
+  width: var(--size-icon-action-m, 20px);
+  height: var(--size-icon-action-m, 20px);
+}
+
+button.mdc-button.ngt-tertiary-button .mat-icon, 
+button.mdc-button.ngt-tertiary-button svg{
+  font-size: var(--size-icon-l, 24px);
+  line-height: var(--size-icon-l, 24px);
+  width: var(--size-icon-l, 24px);
+  height: var(--size-icon-l, 24px);
+}
+
+
+// Link button
+a.mdc-button{
+  --mat-text-button-icon-offset: 0px;
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-skip-ink: none;
+  text-decoration-thickness: auto;
+  text-underline-offset: auto;
+  text-underline-position: from-font;
+  text-wrap: nowrap;
+  
+  .mdc-button__label{
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-gap-component-dense, 4px);
+    line-height: var(--primitives-global-font-lineheightlow, 125%);
+    .mat-icon, svg{
+      font-size: var(--size-icon-action-s, 18px);
+      line-height: var(--size-icon-action-s, 18px);
+      width: var(--size-icon-action-s, 18px);
+      height: var(--size-icon-action-s, 18px);
+      margin: auto 0;
+    }
+  }
+}
+
+a.ngt-link.mat-mdc-button{
+  padding-top: var(--spacing-padding-component-minimal, 4px);
+  padding-bottom: var(--spacing-padding-component-minimal, 4px);
+}
+
+a.mdc-button.ngt-link-small{
+  font-size: var(--size-fontsize-s, 14px);
+  --link-height-small: calc(var(--size-font-s, 14px) * var(--primitives-global-font-lineheightmedium, 150%) + 2 * var(--spacing-padding-component-minimal, 4px));
+  --mdc-text-button-container-height: var(--link-height-small, 26px);
+}
+
+
+// Mat-icon-button
+.mdc-icon-button.mat-mdc-icon-button.ngt-square-button{
+  border-radius: var(--size-radius-comp, 4px);
+  .mat-mdc-button-persistent-ripple{
+    border-radius: var(--size-radius-comp, 4px);
+  }
+}
+
+:root, .light-mode, .dark-mode {
+
+  .mdc-icon-button.mat-mdc-icon-button{
+    display: flex;
+    width: var(--size-comp-s, 48px);
+    height: var(--size-comp-s, 48px);
+    padding: var(--spacing-padding-component-minimal, 4px);
+    justify-content: center;
+    align-items: center;
+  
+    color: var(--color-text-primary-onprimarymuted);
+    background-color: transparent;
+
+    --mat-icon-button-state-layer-color: rgb( from var(--color-background-primary-muted-active) r g b / 100%);
+    --mat-icon-button-hover-state-layer-opacity: var(--ngt-primary-muted-hover-opacity);
+    --mat-icon-button-focus-state-layer-opacity: var(--ngt-primary-muted-focus-opacity);
+    --mat-icon-button-pressed-state-layer-opacity: 0;
+    --mat-icon-button-ripple-color: var(--color-background-primary-muted-active);
+
+    &.ngt-secondary-button, &:hover, &:focus:focus-visible, &:active{
+      background: var(--color-background-primary-muted-default);
+    }
+  
+    &:disabled {
+      background-color: var(--color-background-primary-disabled);
+      color: var(--color-icon-ondisabled);
+    }
+    &.ngt-selected-button{
+      background-color: var(--color-background-primary-default);
+      color: var(--color-text-primary-onprimary);
+      .mat-icon{
+        color: var(--color-icon-primary-onprimary);
+      }
+    }
+
+    .mat-icon, svg{
+      font-size: var(--size-icon-l, 24px);
+      line-height: var(--size-icon-l, 24px);
+      width: var(--size-icon-l, 24px);
+      height: var(--size-icon-l, 24px);
+    }
+  }
+
+  // standard button without label
+  button.mdc-button.ngt-square-button:not(.ngt-mini-button){
+    height: var(--size-comp-s, 48px);
+    min-width: var(--size-comp-s, 48px);
+    max-width: var(--size-comp-s, 48px);
+    padding-inline: var(--spacing-gap-component-standard, 8px);
+    --mat-protected-button-icon-spacing: 0px;
+    --mat-protected-button-icon-offset: 0px;
+    --mat-filled-button-icon-spacing: 0px;
+    --mat-filled-button-icon-offset: 0px;
+    --mat-outlined-button-icon-spacing: 0px;
+    --mat-outlined-button-icon-offset: 0px;
+  }
+
+  // tertiary button without label
+  button.mdc-button.ngt-square-button.ngt-tertiary-button:not(.ngt-mini-button){
+    height: var(--size-comp-xs, 40px);
+    min-width: var(--size-comp-xs, 40px);
+    max-width: var(--size-comp-xs, 40px);
+    padding-inline: var(--spacing-padding-component-minimal, 4px);
+    --mat-filled-button-icon-spacing: 0px;
+    --mat-filled-button-icon-offset: 0px;
+  }
+
+  // mini button without label
+  button.mdc-button.ngt-mini-button{
+    height: var(--size-comp-xxxs, 24px);
+    min-width: var(--size-comp-xxxs, 24px);
+    padding-inline: var(--spacing-padding-component-minimal, 4px);
+    --mat-filled-button-icon-spacing: 0px;
+    --mat-filled-button-icon-offset: 0px;
+    --mat-protected-button-icon-spacing: 0px;
+    --mat-protected-button-icon-offset: 0px;
+    --mat-outlined-button-icon-spacing: 0px;
+    --mat-outlined-button-icon-offset: 0px;
+
+    .mat-icon, svg{
+      font-size: var(--size-icon-xs, 16px);
+      line-height: var(--size-icon-xs, 16px);
+      width: var(--size-icon-xs, 16px);
+      height: var(--size-icon-xs, 16px);
+    }
+
+    &.ngt-square-button{
+      max-width: var(--size-comp-xxxs, 24px);
+    }
+  }
+}

@@ -1,0 +1,57 @@
+
+.ngt-form-grid {
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-columns: auto auto;
+    grid-gap: var(--spacing-gap-formcomp-gapvertical, 16px) var(--spacing-gap-formcomp-gaphorizontal, 16px);
+    width: fit-content;
+
+    ngt-button {
+        justify-self: flex-end;
+    }
+}
+.ngt-form-row{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-gap-formcomp-gaphorizontal, 16px);
+}
+
+.ngt-form-column{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-gap-formcomp-gapvertical, 16px);
+    width: fit-content;
+
+    ngt-button {
+        align-self: flex-end;
+    }
+}
+
+.ngt-form-columns-container{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-gap-formcomp-gapcolumn, 80px);
+}
+
+.ngt-form-columns-layout-standard {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-gap-formcomp-gaphorizontal, 16px);
+    height: fit-content;
+}
+
+.ngt-form-columns-layout-xl {
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-gap-layout-xlarge, 40px);
+    height: fit-content;
+}
+
+.ngt-form-grid-double-column{
+    padding: var(--spacing-padding-component-standard, 16px);
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: 100px 100px 10px;
+    column-gap: var(--spacing-gap-formcomp-gapcolumn, 80px);
+    row-gap: var(--spacing-gap-formcomp-gapvertical, 16px);
+}

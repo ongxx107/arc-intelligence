@@ -1,0 +1,1 @@
+export * from './ngt-search-field.component';

@@ -1,0 +1,37 @@
+@use '@angular/material' as mat;
+
+:root, .dark-mode {
+  @include mat.divider-overrides((
+    color: var(--color-border-neutral-default),
+    width: 1px,
+  ));
+}
+
+.mat-divider.mat-divider-horizontal {
+  display: flex;
+  min-width: var(--size-minTarget, 24px);
+  margin: var(--spacing-padding-component-dense, 8px) var(--spacing-padding-component-minimal, 4px);
+  align-items: flex-start;
+}
+
+.mat-divider.mat-divider-vertical {
+  display: inline-flex;
+  min-height: var(--size-minTarget, 24px);
+  margin: var(--spacing-padding-component-minimal, 4px) var(--spacing-padding-component-dense, 8px);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.ngt-divider-small {
+  --mat-divider-width: 1px;
+}
+
+.ngt-divider-medium {
+  --mat-divider-width: 2px;
+}
+
+mat-divider[vertical=true] {
+  height: 100%;
+}

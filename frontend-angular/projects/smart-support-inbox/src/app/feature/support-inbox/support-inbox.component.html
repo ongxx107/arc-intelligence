@@ -1,0 +1,76 @@
+<ngt-toolbar
+  [label]="'Smart Support Inbox'"
+  filterLabel="Filter"
+  [filterOptions]="filterOptions()"
+  [(filterValue)]="selectedFilters"
+  [hasAddButton]="true"
+  (add)="openCreate()"
+  [hasSearch]="true"
+  searchLabel="Search tickets"
+  (searchValue)="onSearch($event)"
+>
+</ngt-toolbar>
+
+<div class="ticket-layout" [class.with-sidepanel]="showSidepanel()">
+  <div class="scroll-container">
+    <ngt-table-header
+      style="width: 100%"
+      [availableColumns]="tableColumns"
+      [(columnWidths)]="columnWidths"
+      [(visibleColumns)]="visibleColumns"
+      sortColumn="id" 
+      sortDirection="asc">
+    </ngt-table-header>
+
+    @if (loading()) {
+      <mat-progress-bar mode="indeterminate"></mat-progress-bar>
+    }
+
+    @if (error()) {
+      <div class="error">{{ error() }}</div>
+    }
+
+    @if (!loading() && !error() && tickets().length === 0) {
+      <div class="empty">No tickets</div>
+    }
+
+    @for (t of tickets(); track t.id) {
+      <ngt-table-row
+        (click)="onRowClick(t)"
+        [class.selected]="selectedTicket()?.id === t.id">
+
+        @for (column of visibleColumns(); track column) {
+          <ngt-table-cell [width]="columnWidths()[column]" justify="left">
+            @switch (column) {
+              @case ('subject') { {{ t.subject }} }
+              @case ('category') { {{ t.category }} }
+              @case ('priority') { {{ t.priority }} }
+              @case ('created_at') { {{ formatDate(t.created_at) }} }
+            }
+          </ngt-table-cell>
+        }
+      </ngt-table-row>
+    }
+  </div>
+
+  <!-- Side Panel Details -->
+  @if (showSidepanel() && selectedTicket()) {
+    <div class="sidepanel-overlay" (click)="closeSidepanel()">
+      <div class="sidepanel-container" (click)="$event.stopPropagation()">
+        <ssi-ticket-sidepanel
+          [ticket]="selectedTicket()!"
+          (close)="closeSidepanel()"
+          (updated)="onFeedbackUpdated($event)"
+        ></ssi-ticket-sidepanel>
+      </div>
+    </div>
+  }
+
+  <!-- Create Ticket -->
+  @if (isCreating()) {
+    <ssi-ticket-create
+      (close)="closeCreate()"
+      (created)="onTicketCreated($event)"
+    ></ssi-ticket-create>
+  }
+</div>

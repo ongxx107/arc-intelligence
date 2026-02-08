@@ -1,0 +1,106 @@
+/* Ticket Create Styles (based on vm-create) */
+
+:host {
+  display: contents;
+}
+
+.create-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--color-background-container-default, #1A2C47);
+  z-index: 1100;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.create-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: var(--spacing-padding-layout-wide, 24px);
+  border-bottom: 1px solid var(--color-border-primary, #2A3B52);
+  background: var(--color-background-container-elevated, #243454);
+}
+
+.title-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  min-width: 0;
+}
+
+.create-title {
+  color: var(--color-text-primary-onPrimary, #FFF);
+  font-family: var(--primitives-global-font-fontFamily, Inter);
+  font-size: var(--size-font-h4, 24px);
+  font-weight: var(--primitives-global-font-fontWeightBold, 700);
+  margin: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.create-subtitle {
+  color: var(--color-text-secondary-onPrimary, #B0C4DE);
+  font-family: var(--primitives-global-font-fontFamily, Inter);
+  font-size: var(--size-font-body-xs, 12px);
+  font-weight: var(--primitives-global-font-fontWeightRegular, 400);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.close-button {
+  z-index: 1101;
+}
+
+.create-content {
+  flex: 1;
+  overflow: hidden;
+  padding: var(--spacing-padding-layout-wide, 24px);
+  min-height: 0;
+}
+
+.form-column {
+  max-width: 900px;
+  margin: 0 auto;
+  height: 100%;
+  overflow-y: auto;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-layout-large, 32px);
+  padding-right: var(--spacing-m, 8px);
+}
+
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-gap-formComp-gapVertical, 16px);
+}
+
+.group-title {
+  color: var(--color-text-primary-onPrimary, #FFF);
+  font-family: var(--primitives-global-font-fontFamily, Inter);
+  font-size: var(--size-font-h6, 18px);
+  font-weight: var(--primitives-global-font-fontWeightBold, 700);
+  margin-bottom: var(--spacing-s, 4px);
+  padding-bottom: var(--spacing-s, 4px);
+  border-bottom: 1px solid var(--color-border-secondary, #3A4B62);
+}
+
+.actions-row {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--spacing-gap-component-default, 12px);
+  padding-bottom: var(--spacing-padding-layout-wide, 24px);
+}
+
+.error {
+  color: rgba(255, 120, 120, 0.95);
+  font-size: 13px;
+}

@@ -1,0 +1,50 @@
+
+<ng-template #buttonContent>
+  @if (iconPosition() !== "trailing" && (matIcon() || svgIcon())) {
+    <mat-icon [svgIcon]="svgIcon() ? svgIcon()! : ''">
+      {{matIcon() ? matIcon()! : ''}}
+    </mat-icon>
+  }
+
+  <ng-content select="mat-icon:not([iconPositionEnd])"></ng-content>
+  
+  <ng-content></ng-content>
+
+  @if (counter() !== null) {
+    <ngt-badge scale="small" [disabled]="disabled()">
+      {{counter()}}
+    </ngt-badge>
+  }
+
+  <ng-content select="mat-icon[iconPositionEnd]"></ng-content>
+
+  @if (iconPosition() === "trailing" && (matIcon() || svgIcon())) {
+    <mat-icon iconPositionEnd [svgIcon]="svgIcon() ? svgIcon()! : ''">
+      {{matIcon() ? matIcon()! : ''}}
+    </mat-icon> 
+  }
+
+  @if (menuArrow()) {
+    <mat-icon iconPositionEnd>
+      {{menuArrowIcon()}}
+    </mat-icon> 
+  }
+</ng-template>
+
+@if (shape() === 'round') {
+  <button mat-icon-button #ngtbutton [type]="type()" [disabled]="disabled()" [class]="buttonClasses()" (click)="onClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContent" />
+  </button>
+} @else if (styling() === 'outline' || styling() === 'stroked') {
+  <button mat-stroked-button #ngtbutton [type]="type()" [disabled]="disabled()" [class]="buttonClasses()" (click)="onClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContent" />
+  </button>
+} @else if (styling() === 'tertiary' || (scale() === "mini" && styling() === "default")) {
+  <button mat-flat-button #ngtbutton [type]="type()" [disabled]="disabled()" [class]="buttonClasses()" (click)="onClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContent" />
+  </button>
+} @else {
+  <button mat-raised-button #ngtbutton [type]="type()" [disabled]="disabled()" [class]="buttonClasses()" (click)="onClick($event)">
+    <ng-container *ngTemplateOutlet="buttonContent" />
+  </button>
+}

@@ -1,0 +1,14 @@
+
+:host {
+  flex-shrink: 1;
+  flex-grow: 1;
+  display: flex;
+  padding: 0 var(--spacing-padding-component-standard, 16px);
+  justify-content: center;
+  align-items: center;
+}
+
+.fixed {
+  flex-shrink: 0;
+  flex-grow: 0;
+}

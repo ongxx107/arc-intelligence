@@ -1,0 +1,61 @@
+.ngt-flex-row{
+    display: flex;
+    flex-direction: row;
+}
+
+.ngt-flex-column{
+    display: flex;
+    flex-direction: column;
+}
+
+.ngt-flex-row-spaced{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.ngt-flex-column-spaced{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.ngt-flex-column-spaced-between{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.ngt-flex-row-standard{
+    display: flex;
+    flex-direction: row;
+    gap: var(--spacing-gap-component-standard);
+    padding: var(--spacing-padding-layout-standard, 16px);
+}
+
+.ngt-flex-column-standard{
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-gap-component-standard);
+    padding: var(--spacing-padding-layout-standard, 16px);
+}
+
+.ngt-align-start{
+  align-self: flex-start;
+}
+.ngt-align-center{
+    align-self: center;
+}
+.ngt-align-end{
+  align-self: flex-end;
+}
+
+.ngt-flex-align-center{
+    display: flex;
+    align-items:center;
+}
+
+.ngt-flex-justify-center{
+    display: flex;
+    justify-content: center;
+}

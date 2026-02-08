@@ -1,0 +1,58 @@
+/* Reset all styling */
+@use 'resets/reset';
+/* when using dialogs or cdk-overlay one has to include cdk-overlay.scss for correct rendering */
+@use 'resets/cdk-overlay.scss';
+
+/* Use helper system variables - to be deleted*/
+@use 'tokens/default-sys-variables/ref-typeface';
+@use 'tokens/default-sys-variables/ref-colors';
+
+/* Use figma primitives */
+@use 'tokens/primitive-variables';
+@use 'tokens/sys-typescale';
+@use 'tokens/desktop-variables';
+
+/* Use theming via system variables that are linked to figma tokens
+   and colorscheme mixins for light or dark mode */
+@use 'styles/themes';
+@use 'tokens/theme-with-colorscheme-class';
+// @use 'tokens/theme-with-system-colorscheme';
+
+/* DEBUG and Test Themes
+   please comment out the above scss file for testing or debuging
+   @use 'tokens/default-sys-variables/temp.scss';  //  - complete theme with all material component design tokens
+   @use '../../../../../node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css';
+*/
+
+
+/* Use special styling adaptions that could not be managed by system variables */
+@use 'styles/style-adaptions.scss';
+@use 'styles/autocomplete-styles.scss';
+@use 'styles/badge-styles.scss';
+@use 'styles/button-styles.scss';
+@use 'styles/button-link-styles.scss';
+@use 'styles/card-styles.scss';
+@use 'styles/button-toggle-styles.scss';
+@use 'styles/checkbox-styles.scss';
+@use 'styles/chip-styles.scss';
+@use 'styles/datepicker-styles.scss';
+@use 'styles/divider-styles.scss';
+@use 'styles/dialog-styles.scss';
+@use 'styles/input-field-styles.scss';
+@use 'styles/list-styles.scss';
+@use 'styles/menu-styles.scss';
+@use 'styles/radiobutton-styles.scss';
+@use 'styles/search-styles.scss';
+@use 'styles/select-styles.scss';
+@use 'styles/switch-styles.scss';
+@use 'styles/tab-styles.scss';
+@use 'styles/toolbar-styles.scss';
+
+/* Add reusable ngt-xxx css classes*/
+@use 'css/ngt-backgrounds.css';
+@use 'css/ngt-flex.css';
+@use 'css/ngt-forms.css';
+@use 'css/ngt-paddings.css';
+@use 'css/ngt-sizes.css';
+@use 'css/ngt-status-colors.css';
+@use 'css/ngt-utils.css';

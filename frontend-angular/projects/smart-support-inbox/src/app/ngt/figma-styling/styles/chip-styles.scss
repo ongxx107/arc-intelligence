@@ -1,0 +1,139 @@
+@use '@angular/material' as mat;
+
+:root, .light-mode, .dark-mode {
+  @include mat.chips-overrides((
+    container-height: var(--size-comp-XXXS, 24px),
+    container-shape-radius: var(--size-radius-comp, 4px),
+
+    with-avatar-avatar-shape-radius: 50%,
+    with-avatar-avatar-size: 15px,//var(--size-icon-action-m, 20px),
+    with-icon-icon-size: var(--size-icon-action-m, 20px),
+
+    outline-width: 0px,
+    flat-selected-outline-width: 0px,
+
+    elevated-container-color: var(--color-background-neutral-muted-default),
+    elevated-selected-container-color: var(--color-background-isselected),
+    elevated-disabled-container-color: var(--color-background-neutral-disabled),
+    flat-disabled-selected-container-color: var(--color-background-neutral-disabled),
+
+    //outline-color: ,
+    //disabled-outline-color: ,
+    //focus-outline-color: ,
+
+    hover-state-layer-color: rgb( from var(--color-background-neutral-hover) r g b / 100%),
+    focus-state-layer-color: rgb( from var(--color-background-neutral-focus) r g b / 100%),
+    selected-hover-state-layer-color: rgb( from var(--color-background-neutral-hover) r g b / 100%),
+    selected-focus-state-layer-color: rgb( from var(--color-background-neutral-focus) r g b / 100%),
+
+    hover-state-layer-opacity: 0.03,
+    focus-state-layer-opacity: 0.06,
+    selected-hover-state-layer-opacity: 0.03,
+    selected-focus-state-layer-opacity: 0.06,
+
+    //disabled-container-opacity: 1.0,
+    with-trailing-icon-disabled-trailing-icon-opacity: 1.0,
+    //with-avatar-disabled-avatar-opacity: ,
+    //with-icon-disabled-icon-opacity: ,
+
+    trailing-action-state-layer-color: transparent, //hover + focus + press  of trailling-icon-area
+    selected-trailing-action-state-layer-color: transparent,
+    //trailing-action-opacity: ,
+    //trailing-action-focus-opacity: ,
+    //trailing-action-hover-state-layer-opacity: ,
+    //trailing-action-focus-state-layer-opacity: ,
+
+    label-text-color: var(--color-text-neutral-onneutral),
+    with-icon-icon-color: var(--color-text-neutral-onneutral),
+    with-trailing-icon-trailing-icon-color: var(--color-text-neutral-onneutral),
+    selected-label-text-color: var(--color-text-primary-onprimary),
+    with-icon-selected-icon-color: var(--color-text-primary-onprimary),
+    selected-trailing-icon-color: var(--color-text-primary-onprimary),
+    disabled-label-text-color: var(--color-text-ondisabled),
+    selected-disabled-trailing-icon-color: var(-color-text-ondisabled),
+    with-icon-disabled-icon-color: var(--color-text-ondisabled),
+    with-trailing-icon-disabled-trailing-icon-color: var(--color-text-ondisabled),
+
+    label-text-font: var(--primitives-global-font-fontFamily, Inter),
+    label-text-line-height: normal,
+    label-text-size: var(--size-fontSize-s, 14px),
+    //label-text-tracking: , // css: letter-spacing
+    label-text-weight: var(--primitives-global-font-fontWeightRegular, 400),
+
+  ));
+}
+
+ngt-chip .mat-mdc-chip
+, .ngt-chip.mat-mdc-chip {
+  min-width: var(--size-comp-XS, 40px);
+  max-width: var(--size-maxwidth-comp, 256px);
+  padding: 0px;
+  margin: 0px;
+  &:active {
+    background: var(--color-background-neutral-active);
+  }
+}
+
+ngt-chip .mat-mdc-standard-chip .mat-mdc-chip-action-label
+, .ngt-chip.mat-mdc-standard-chip .mat-mdc-chip-action-label {
+  display: inline-flex;
+  align-items: center;
+}
+
+ngt-chip .mat-mdc-standard-chip .mdc-evolution-chip__text-label
+, .ngt-chip.mat-mdc-standard-chip .mdc-evolution-chip__text-label {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  font-style: normal;
+ }
+
+ngt-chip .mat-mdc-standard-chip.mdc-evolution-chip--with-trailing-action .mdc-evolution-chip__action--primary
+, .ngt-chip.mat-mdc-standard-chip.mdc-evolution-chip--with-trailing-action .mdc-evolution-chip__action--primary {
+  padding-left: 4px;
+  padding-right: 0;
+  gap: var(--spacing-gap-component-standard, 8px);
+}
+
+ngt-chip .mat-mdc-standard-chip .mdc-evolution-chip__action--primary
+, .ngt-chip.mat-mdc-standard-chip .mdc-evolution-chip__action--primary {
+  padding-left: 4px;
+  padding-right: 4px;
+}
+
+ngt-chip .mat-mdc-chip-avatar
+, .ngt-chip.mat-mdc-chip-avatar {
+  margin-left: 0px;
+  margin-right: 4px;
+}
+
+ngt-chip .mat-icon.remove-icon
+, .ngt-chip .mat-icon.remove-icon {
+  width: 10px;
+  height: 10px;
+  font-size: 10px;
+}
+
+ngt-chip .mat-icon.leading-icon
+, .ngt-chip .mat-icon.leading-icon {
+  width: var(--size-icon-action-m, 20px);
+  height: var(--size-icon-action-m, 20px);
+  font-size: var(--size-icon-action-m, 20px);
+  margin-left: 0px;
+  margin-right: 4px;
+}
+
+ngt-chip .mat-mdc-standard-chip.mdc-evolution-chip--with-primary-graphic .mdc-evolution-chip__action--primary
+, .ngt-chip.mat-mdc-standard-chip.mdc-evolution-chip--with-primary-graphic .mdc-evolution-chip__action--primary {
+  padding-left: 0;
+  padding-right: 4px;
+}
+
+/* no leadig checkmark for selected chip-options: */
+ngt-chip .mat-mdc-standard-chip .mdc-evolution-chip__graphic
+, .ngt-chip.mat-mdc-standard-chip .mdc-evolution-chip__graphic {
+  display: none !important;
+}
+ngt-chip .mat-mdc-standard-chip .mdc-evolution-chip__text-label:not(:only-child)
+, .ngt-chip.mat-mdc-standard-chip .mdc-evolution-chip__text-label:not(:only-child) {
+  padding-left: 4px;
+}

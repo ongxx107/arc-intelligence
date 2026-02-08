@@ -1,0 +1,51 @@
+@use '@angular/material' as mat;
+
+@function create-theme($type: light, $density: 0) {
+  @return mat.define-theme(
+    (
+      color: (
+        theme-type: $type,
+        use-system-variables: true,
+        system-variables-prefix: md-sys-color,
+      ),
+      typography: (
+        use-system-variables: true,
+        system-variables-prefix: md-sys-typescale,
+      ),
+      density: (
+        scale: $density 
+        ),
+    )
+    );
+}
+
+$light-theme: create-theme($type: light);
+$dark-theme: create-theme($type: dark);
+
+:root{
+  font-family: var(--primitives-global-font-fontfamily, Inter);
+  
+  color-scheme: light dark;
+  // set common background and text colors
+  background-color: var(--color-background-container-default); 
+  color: var(--color-text-neutral-default);
+  @include mat.all-component-themes($light-theme);
+  // secondary button color variant
+ .ngt-secondary-button {
+    @include mat.button-color($light-theme, $color-variant: secondary);
+  }
+}
+
+.light-mode {
+  color-scheme: light;
+  // set common background and text colors
+  background-color: var(--color-background-container-default); 
+  color: var(--color-text-neutral-default);
+}
+
+.dark-mode {
+  color-scheme: dark;
+  // set common background and text colors
+  background-color: var(--color-background-container-default); 
+  color: var(--color-text-neutral-default);
+}

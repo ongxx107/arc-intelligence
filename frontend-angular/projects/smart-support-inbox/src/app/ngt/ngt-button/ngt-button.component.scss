@@ -1,0 +1,12 @@
+:host{
+    display:flex;
+    height: fit-content;
+    width:fit-content;
+    &.ngt-max-width {
+        width: 100%;
+    }
+}
+
+.ngt-max-width {
+    width: 100%;
+}

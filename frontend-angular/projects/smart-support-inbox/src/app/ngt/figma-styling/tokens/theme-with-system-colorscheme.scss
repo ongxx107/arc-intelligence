@@ -1,0 +1,31 @@
+// Automatic dark mode via system settings
+@use 'primitive-variables';
+
+@use 'color-light' as tlight;
+@use 'sys-color-light' as syslight;
+
+@use 'color-dark' as tdark;
+@use 'sys-color-dark' as sysdark;
+
+
+@media (prefers-color-scheme: light) {
+  :root {
+    @include tlight.theme-color-light;
+    @include syslight.sys-color-light;
+    color-scheme: light;
+    // set common background and text colors
+    background-color: var(--md-sys-color-surface); 
+    color: var(--md-sys-color-on-surface);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    @include tdark.theme-color-dark;
+    @include sysdark.sys-color-dark;
+    color-scheme: dark;
+    // set common background and text colors
+    background-color: var(--md-sys-color-surface);
+    color: var(--md-sys-color-on-surface);
+  }
+}

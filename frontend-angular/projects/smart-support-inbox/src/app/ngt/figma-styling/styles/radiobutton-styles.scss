@@ -1,0 +1,31 @@
+@use '@angular/material' as mat;
+
+:root,
+.dark-mode {
+  @include mat.radio-overrides(( //label
+      label-text-color: var(--color-text-neutral-default),
+      label-text-size: var(--size-fontSize-m, 16px),
+      label-text-weight: 400,
+      label-text-line-height: var(--primitives-global-font-lineheightlow, 125%),
+
+      //icon
+      unselected-icon-color: var(--color-icon-neutral-muted-default),
+      unselected-hover-icon-color: var(--color-icon-neutral-muted-default), //only changes the circle icon, not the overlay
+      unselected-focus-icon-color: var(--color-icon-neutral-muted-default), //only changes the circle icon, not the overlay
+      unselected-pressed-icon-color: var(--color-icon-neutral-muted-default), //only changes the circle icon, not the overlay
+      selected-icon-color: var(--color-icon-primary-default),
+      selected-hover-icon-color: var(--color-icon-primary-default), //only changes the circle icon, not the overlay
+      selected-focus-icon-color: var(--color-icon-primary-default), //only changes the circle icon, not the overlay
+      selected-pressed-icon-color: var(--color-icon-primary-default), //only changes the circle icon, not the overlay
+      ripple-color: var(--color-text-neutral-default), //is used for all state overlay, not only pressed ripple
+      checked-ripple-color: var(--color-icon-primary-default), // is used for all state overlay, not only pressed ripple
+      //if opacities are added or ripple colors for different states add for unselected: var(--color-background-neutral-hover/focus/active),
+
+      //disabled
+      disabled-label-color: var(--color-text-ondisabled),
+      disabled-unselected-icon-color: var(--color-icon-ondisabled),
+      disabled-unselected-icon-opacity: 1.0,
+      disabled-selected-icon-color: var(--color-icon-ondisabled),
+      disabled-selected-icon-opacity: 1.0,
+    ));
+}

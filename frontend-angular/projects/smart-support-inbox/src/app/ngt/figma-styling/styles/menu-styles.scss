@@ -1,0 +1,41 @@
+@use '@angular/material' as mat;
+
+:root, .dark-mode, .light-mode{
+    // --mat-menu-item-spacing: var(--spacing-gap-component-standard, 8px);
+    @include mat.menu-overrides((
+        container-shape: var(--size-radius-comp, 4px),
+        divider-bottom-spacing: var(--spacing-padding-component-dense, 8px),
+        divider-top-spacing: var(--spacing-padding-component-dense, 8px),
+        item-spacing: var(--spacing-gap-component-standard, 8px),
+        item-icon-size: var(--size-icon-action-m, 20px),
+        item-leading-spacing: var(--spacing-padding-component-standard, 16px),
+        item-trailing-spacing: var(--spacing-padding-component-standard, 16px),
+        item-with-icon-leading-spacing: var(--spacing-padding-component-standard, 16px),
+        item-with-icon-trailing-spacing: var(--spacing-padding-component-standard, 16px),
+        // container-elevation-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 2px 4px -1px rgba(0, 0, 0, 0.20),
+        item-label-text-color: var(--color-text-primary-onprimarymuted),
+        item-icon-color: var(--color-icon-primary-onprimarymuted),
+
+        item-hover-state-layer-color: rgb(from color-mix(in srgb,var(--color-background-primary-muted-default), var(--color-background-primary-muted-hover))  r g b / 100%), 
+        item-focus-state-layer-color: rgb(from color-mix(in srgb,var(--color-background-primary-muted-default), var(--color-background-primary-muted-focus)) r g b /100%),
+
+        container-color: var(--color-background-container-overlay),
+        divider-color: var(--color-border-neutral-default),
+        item-label-text-font: var(--primitives-global-font-fontfamily, Inter),
+        item-label-text-size: var(--size-fontsize-m, 16px),
+        item-label-text-line-height: var(--primitives-global-font-lineheightlow, 125%),
+        item-label-text-weight: var(--primitives-global-font-fontweightregular, 400),
+    ));
+}
+
+.mat-mdc-menu-panel{
+    min-width: var(--spacing-padding-component-standard, 16px);
+}
+
+.mat-mdc-menu-item.mat-focus-indicator{
+    min-height: var(--size-comp-xs, 40px); // hardcoded min-width = 48px
+    .mat-icon{
+        font-size: var(--size-icon-m, 20px);
+        line-height: var(--size-icon-m, 20px);
+    }
+}

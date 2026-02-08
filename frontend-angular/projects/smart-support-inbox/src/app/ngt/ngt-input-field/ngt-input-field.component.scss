@@ -1,0 +1,41 @@
+// input field size and text properties
+:host {
+    display: contents;
+    width: fit-content;
+    height: fit-content;
+    
+}
+
+.ngt-ellipsis{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+// // prefix or suffix icon padding vertical 
+// mat-icon.mat-icon {
+//     padding: 0px var(--spacing-padding-component-dense, 8px);
+// }
+
+// // color of prefix icon in warning state
+// mat-icon.mat-icon.warning {
+//     color: var(--color-signal-error-main, #FF5900);
+//     padding: 0px 0px 0px var(--spacing-padding-component-dense, 8px);
+// }
+
+// // padding of value text
+// // div.mat-mdc-text-field-wrapper {
+// //     padding: 0px var(--spacing-padding-component-minimal, 4px) 0px var(--spacing-padding-component-dense, 8px);
+// // }
+
+// // text suffix (= units) extra stylings 
+// .ngt-unit {
+//     color: var(--color-text-neutral-muted-default);
+//     line-height: 24px;
+//     /* 150% */
+// }
+
+.compact {
+  // height: var(--size-comp-XS, 40px);
+  height: 32px;
+}

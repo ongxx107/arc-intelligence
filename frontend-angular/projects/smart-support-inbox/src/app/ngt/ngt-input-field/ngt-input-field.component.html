@@ -1,0 +1,74 @@
+<mat-form-field #ngtFormField appearance="fill"
+  [class]="'ngt-width-' + width()"
+  [class.ngt-input-readonly]="mode() === 'readonly'"
+  subscriptSizing="dynamic"
+  [floatLabel]="placeholder()? 'always': 'auto'"
+  [class.errortooltip]="errorTooltip()"
+  [title]="label()"
+  [class.ngt-input-small]="scale() === 'small'"
+  (focusin)="focused.set(true); confirmed.set(false)" 
+  (focusout)="focused.set(false)"
+>
+
+  @if (displayedLabel()) {
+    <mat-label class="ngt-ellipsis">{{ displayedLabel() }}</mat-label>
+  }
+
+  
+  @if (!!(formControl().invalid && (formControl().dirty || formControl().touched || (formControl().value && formControl().errors)))) {
+    <mat-icon class="ngt-input-error" matIconPrefix>error</mat-icon>
+  }
+  @else if (matIconPrefix()){
+    <mat-icon matIconPrefix>{{matIconPrefix()}}</mat-icon>
+  }
+
+  @if (prefix()) {
+    <span matTextPrefix>{{prefix()}} </span>
+  }
+
+    <input matInput #ngtinput
+      class="ngt-ellipsis"
+      [required]="required()" 
+      [placeholder]="displayedPlaceholder()"
+      [type]="type()"
+      [formControl]="formControl()"
+      [min]="min()"
+      [max]="max()"
+      [errorStateMatcher]="errorStateMatcher"
+      [attr.maxLength]="maxLength() > 0? maxLength(): null"
+      [matTooltip]="errorTooltip()"
+      [matAutocomplete]="matAutocomplete()!"
+      [matAutocompleteDisabled]="!matAutocomplete()"
+    >
+
+  @if(unit()){
+    <span class="ngt-unit" matSuffix>{{unit()}}</span>
+  }
+  @if (matIcon() || svgIcon()){
+    <mat-icon matIconSuffix (hover)="iconHover.emit()" (click)="iconClick.emit(); $event.stopPropagation()" svgIcon="{{svgIcon()?svgIcon(): null}}">{{matIcon()? matIcon(): null}}</mat-icon>
+  }
+ 
+  <!-- <span class=".mat-icon"><ng-content /></span> -->
+  <span (hover)="iconHover.emit()" (click)="iconClick.emit()" matSuffix><ng-content></ng-content></span>
+
+
+  @if (helperText() && helperText()!=='') {
+    <mat-hint align="start">{{helperText()}}</mat-hint>
+  }
+  @if (helperText() && helperText()!=='' && maxLength()>0) {
+    <mat-hint align="end">{{formControl().value?.length || 0}} / {{maxLength()}}</mat-hint>
+  }
+
+  @if(helperText() && helperText()!=="") {
+    @if( formControl().hasError('required') ) {
+      <mat-error>{{errorText()}}</mat-error>
+    }
+    @if( formControl().hasError('min') ) {
+      <mat-error>Minimum value is {{min()}}</mat-error>
+    }
+    @if( formControl().hasError('max') ) {
+      <mat-error>Maximum value is {{max()}}</mat-error>
+    }
+  }
+
+</mat-form-field>

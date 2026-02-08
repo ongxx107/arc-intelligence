@@ -1,0 +1,33 @@
+
+<ngt-input-field #ngtautoinput  [(value)]="value" [matIconPrefix]="matIconPrefix()"
+  [label]="label()" [unit]="unit()" [matIcon]="matIcon()" [svgIcon]="svgIcon()" 
+  [scale]="scale()" [width]="width()" (iconClick)="iconClick.emit()" (iconHover)="iconHover.emit()"
+  [type]="type()" [mode]="mode()" [placeholder]="placeholder()"
+  (keydown)="onKeydown($event)" (click)="confirmed.set(false)"
+   [matAutocomplete]="ngtAuto">
+</ngt-input-field>
+
+<mat-autocomplete
+    #ngtAuto="matAutocomplete"
+    hideSingleSelectionIndicator
+    [attr.panelWidth]=" panelWidth() || null"
+    [class]="themeMode()+' '+panelClass()"
+  >  
+
+    @if(!confirmed()){
+      @for (option of options(); track  isNamedOptionGroup(option)? option.name :option.key) {
+        @if (isNamedOptionGroup(option) ) {
+          @if(option.options.length > 0){
+            <mat-optgroup [label]="option.name">
+            @for (suboption of option.options; track suboption.key) {
+              <mat-option [value]="suboption.label" (click)="valueKey.emit(suboption.key); ngtautoinput.blur()" [class.ngt-compact-menu-item]="scale() === 'small'">{{ suboption.label }}</mat-option>
+            }
+          </mat-optgroup>
+          }
+          
+        } @else {
+          <mat-option [value]="option.label" (click)="valueKey.emit(option.key); ngtautoinput.blur()" [class.ngt-compact-menu-item]="scale() === 'small'">{{ option.label }}</mat-option>
+        }
+      }
+    }
+  </mat-autocomplete>

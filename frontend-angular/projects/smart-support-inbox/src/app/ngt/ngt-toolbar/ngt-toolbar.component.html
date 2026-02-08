@@ -1,0 +1,46 @@
+<mat-toolbar class="ngt-width-max" [class.ngt-toolbar-border]="hasBorder()">
+    <ng-content select="[ngt-start]" />
+    @if(label()){
+        <span>{{label()}}</span>
+    }
+    @if (counter()!== null && counter() !== undefined){
+        <ngt-badge scale="small" >{{counter()}}</ngt-badge>
+    }
+    @if(hasAddButton()){  
+        <ngt-button shape="round" matIcon="add" (ngtClick)="add.emit()" />
+    }
+    @if(toggles() && toggles().length>0){
+        <ngt-segmented-control [buttons]="toggles()" [(value)]="toggleValue"></ngt-segmented-control>
+    }
+    @if(actions() && actions().length>0){
+        <span class="ngt-action-bar">
+            @for ( button of actions(); track button.key){
+                <ngt-button styling="tertiary" [matIcon]="button.matIcon" (ngtClick)="actionsKey.emit(button.key)">{{button.label}}</ngt-button>
+            }
+        </span>
+    }
+    <ng-content select="[ngt-left]" />
+    <ng-content />
+    <span class="ngt-width-max"></span>
+    <ng-content select="[ngt-right]" />
+    @if(filterOptions()){
+        <ngt-filter-button multiple [shape]="(filterLabel() && filterLabel()!=='') ? 'rect': 'square'" 
+            [options]="filterOptions()!" menuArrow [(value)]="filterValue">
+            @if(filterLabel()){
+                {{filterLabel()}} 
+            }
+        </ngt-filter-button>
+    }
+    @if(sortOptions()){
+        <ngt-filter-button #ngtSortFilter [shape]="(sortLabel() && sortLabel()!=='') ? 'rect': 'square'" 
+            [options]="sortOptions()!" menuArrow [(value)]="sortValue" >
+            @if(sortLabel()){
+                {{sortLabel()}}
+            }
+        </ngt-filter-button>
+    }
+    @if(hasSearch()){
+        <ngt-search-field [label]="searchLabel()" [recentSearches]="recentSearches()" [suggestions]="suggestions()" (valueChange)="onSearchValue($event)" width="medium"></ngt-search-field>
+    }
+    <ng-content select="[ngt-end]" />
+</mat-toolbar>

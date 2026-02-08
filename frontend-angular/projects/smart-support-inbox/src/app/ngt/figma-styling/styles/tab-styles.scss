@@ -1,0 +1,67 @@
+@use '@angular/material' as mat;
+
+:root, .dark-mode {
+    @include mat.tabs-overrides((
+      disabled-ripple-color: none,
+      divider-height: 0px,
+
+      inactive-label-text-color: var(--color-text-primary-onprimarymuted),
+      inactive-hover-label-text-color: var(--color-text-primary-onprimarymuted),
+      inactive-focus-label-text-color: var(--color-text-primary-onprimarymuted),
+
+      active-label-text-color: var(--color-text-primary-onprimarymuted),
+      active-hover-label-text-color: var(--color-text-primary-onprimarymuted),
+      active-focus-label-text-color: var(--color-text-primary-onprimarymuted),
+
+      pagination-icon-color: var(--color-icon-primary-onprimarymuted),
+    ));
+
+    .mat-mdc-tab-group.has-divider {
+      @include mat.tabs-overrides((
+        divider-height: 1px,
+        divider-color: var(--color-border-neutral-default),
+      ));
+    }
+}
+
+ .mat-mdc-tab-group {
+  display: flex;
+  //align-items: flex-start;
+  //align-content: flex-start;
+  //align-self: stretch;
+  //flex-wrap: wrap;
+ }
+
+ .mat-mdc-tab.mdc-tab {
+  display: flex;
+  height: var(--size-comp-m, 56px);
+  max-width: var(--size-maxwidth-comp, 256px);
+  padding: 0px var(--spacing-padding-component-loose, 24px);
+  justify-content: center;
+  align-items: center;
+  gap: var(--spacing-gap-component-dense, 4px);
+
+  overflow: hidden;
+  text-align: center;
+  font-feature-settings: 'liga' off, 'clig' off;
+  text-overflow: ellipsis;
+  /* typography/Text M Bold */
+  font-family: Inter;
+  font-size: var(--size-fontSize-m, 16px);
+  font-style: normal;
+  font-weight: 600;
+  line-height: var(--primitives-global-font-lineheightlow, 1.25); // 20px; /* 125% */
+ }
+
+ .mat-mdc-tab.mdc-tab:hover{
+   background: linear-gradient(0deg, var(--color-background-primary-muted-hover) 0%, var(--color-background-primary-muted-hover) 100%), var(--color-background-primary-muted-default);
+ }
+ .mat-mdc-tab.mdc-tab:focus{
+   background: linear-gradient(0deg, var(--color-background-primary-muted-focus) 0%, var(--color-background-primary-muted-focus) 100%), var(--color-background-primary-muted-default);
+ }
+ .mat-mdc-tab.mdc-tab:active{
+   background: var(--color-background-primary-muted-default);
+ }
+ .mat-mdc-tab.mdc-tab.mat-mdc-tab-disabled{
+   --mdc-tab-indicator-active-indicator-color: transparent;
+ }

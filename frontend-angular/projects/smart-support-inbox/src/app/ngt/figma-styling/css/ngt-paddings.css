@@ -1,0 +1,48 @@
+.ngt-padding-minimal{
+    padding: var(--spacing-padding-component-minimal, 4px);
+}
+.ngt-padding-dense{
+    padding: var(--spacing-padding-layout-dense, 8px);
+}
+.ngt-padding-narrow{
+    padding: var(--spacing-padding-component-narrow, 4px);
+}
+.ngt-padding-standard{
+    padding: var(--spacing-padding-layout-standard, 16px);
+}
+.ngt-padding-loose{
+    padding: var(--spacing-padding-layout-loose, 20px);
+}
+.ngt-padding-wide{
+    padding: var(--spacing-padding-layout-wide, 24px);
+}
+.ngt-padding-spacious{
+    padding: var(--spacing-padding-layout-spacious, 40px);
+}
+
+.ngt-gap-dense, .ngt-gap-minimal{
+    gap: var(--spacing-gap-component-dense, 4px);
+}
+.ngt-gap-standard{
+    gap: var(--spacing-gap-component-standard, 8px);
+}
+.ngt-gap-wide, .ngt-gap-large{
+    gap: var(--spacing-gap-component-wide, 16px);
+}
+.ngt-gap-xlarge{
+    gap: var(--spacing-gap-layout-xlarge, 40px);
+}
+.ngt-gap-xxlarge{
+    gap: var(--spacing-gap-layout-xxlarge, 80px);
+}
+
+.ngt-spacer{
+    display: flex;
+    flex-shrink: 0;
+    align-self: stretch;
+    height: var(--spacing-gap-layout-large, 16px);
+}
+
+.ngt-margin-top-down-standard {
+    margin: var(--spacing-padding-component-standard, 16px) 0px;
+}

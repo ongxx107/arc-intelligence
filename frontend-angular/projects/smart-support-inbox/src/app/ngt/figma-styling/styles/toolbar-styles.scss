@@ -1,0 +1,31 @@
+@use '@angular/material' as mat;
+
+:root, .light-mode, .dark-mode {
+  @include mat.toolbar-overrides((
+    container-background-color: transparent,
+    container-text-color: var(--color-text-neutral-default),
+    title-text-font: var(--primitives-global-font-fontfamily, Inter),
+    title-text-line-height: var(--size-comp-s, 48px),
+    title-text-size: var(--size-font-h6, 18px),
+    title-text-weight: var(--primitives-global-font-fontweightbold, 700),
+    standard-height: calc(var(--spacing-padding-component-dense, 8px) * 2 + var(--size-comp-s, 48px)),
+    // mobile-height: 
+  ));
+}
+
+.mat-toolbar-row, .mat-toolbar-single-row {
+    padding: 0px var(--spacing-padding-component-standard, 16px);
+    gap: var(--spacing-gap-component-wide, 16px);
+}
+// top padding var(--spacing-padding-component-dense, 8px) is within standard height
+
+.ngt-toolbar-border{
+    border-bottom: 1px solid var(--color-border-neutral-default, rgba(0, 0, 0, 0.26));
+}
+
+.ngt-action-bar{
+    display: flex;
+    flex-direction: row;
+    padding: var(--spacing-padding-component-minimal, 4px) 0;
+    gap: var(--spacing-gap-layout-minimal, 4px);
+}

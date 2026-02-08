@@ -1,0 +1,9 @@
+ngt-search-field .mat-mdc-form-field-icon-prefix>.mat-icon,
+ngt-search-field .mat-mdc-form-field-icon-suffix>.mat-icon{
+  padding: 0px;
+}
+ngt-search-field .mat-mdc-form-field-icon-prefix{
+  // padding-right: 0px; // figma specification for non disabled & non focused state
+  // padding-left: 8px; // figma specification for non disabled & non focused state
+  padding: 8px;
+}

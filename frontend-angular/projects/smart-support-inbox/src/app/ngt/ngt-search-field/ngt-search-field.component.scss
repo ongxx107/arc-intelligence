@@ -1,0 +1,19 @@
+:host{
+    display: grid;
+    width: fit-content;
+    height: fit-content;
+    &.ngt-width-max{
+        width: 100%;
+    }
+}
+.ngt-grid-1-1{
+    grid-row: 1;
+    grid-column: 1;
+}
+
+.ngt-hidden{
+    opacity: 0;
+    display: flex;
+    align-content: stretch;
+    justify-content: stretch;
+}

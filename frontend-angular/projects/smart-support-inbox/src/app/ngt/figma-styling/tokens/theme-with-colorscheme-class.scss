@@ -1,0 +1,19 @@
+@use 'primitive-variables';
+
+@use 'color-light' as tlight;
+@use 'sys-color-light' as syslight;
+
+@use 'color-dark' as tdark;
+@use 'sys-color-dark' as sysdark;
+
+
+:root, .light-mode{
+    @include tlight.theme-color-light;
+    @include syslight.sys-color-light;
+
+}
+
+.dark-mode {
+    @include tdark.theme-color-dark;
+    @include sysdark.sys-color-dark;
+}

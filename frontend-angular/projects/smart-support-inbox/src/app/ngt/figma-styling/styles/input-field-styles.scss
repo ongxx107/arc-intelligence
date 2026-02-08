@@ -1,0 +1,154 @@
+@use '@angular/material' as mat;
+
+:root, .dark-mode, .light-mode {
+
+  --helpvar-input-padding-top: 22px; 
+  --helpvar-input-padding-bottom: 6px; 
+  --mat-mdc-form-field-floating-label-scale: 0.75;
+  --mat-form-field-container-text-line-height: var(--primitives-global-font-lineheightlow, 125%);
+
+  @include mat.form-field-overrides((
+
+    container-height: var(--size-comp-s, 48px),
+    filled-container-shape: var(--size-radius-comp, 4px),
+    // container-vertical-padding: var(--spacing-gap-layout-standard, 8px), //var(--spacing-padding-component-dense, 8px) var(--spacing-padding-component-minimal, 4px),
+    filled-with-label-container-padding-top: var(--helpvar-input-padding-top, 22px),
+    filled-with-label-container-padding-bottom: var(--helpvar-input-padding-bottom, 6px),
+
+    filled-active-indicator-height: var(--size-border-standard, 1px),
+    filled-focus-active-indicator-height: var(--size-border-highlight, 2px),
+    
+    container-text-font: var(--primitives-global-font-fontfamily, Inter),
+    container-text-line-height: var(--primitives-global-font-lineheightlow, 125%),
+    container-text-size: var(--size-fontSize-m, 16px),
+    container-text-weight: var(--primitives-global-font-fontweightregular, 400),
+    
+    // filled-label-display: ,
+    filled-label-text-font: var(--primitives-global-font-fontfamily, Inter),
+    filled-label-text-size: var(--size-fontsize-m, 16px),
+    filled-label-text-weight: var(--primitives-global-font-fontweightregular, 400),
+
+    subscript-text-font: var(--primitives-global-font-fontfamily, Inter),
+    subscript-text-size: var(--size-fontsize-xs, 12px),
+    subscript-text-weight: var(--primitives-global-font-fontweightregular, 400),
+
+    filled-container-color: var(--color-background-neutral-muted-default),
+    filled-label-text-color: var(--color-text-neutral-muted-default),
+    filled-hover-label-text-color: var(--color-text-neutral-muted-default),
+    filled-focus-label-text-color: var(--color-text-neutral-muted-default),
+    filled-input-text-color: var(--color-text-neutral-onneutral),
+    filled-input-text-placeholder-color: var(--color-text-neutral-muted-default),
+    filled-active-indicator-color: var(--color-border-neutral-default),
+    filled-hover-active-indicator-color: var(--color-border-neutral-hover),
+    filled-focus-active-indicator-color: var(--color-border-primary-focus),
+    filled-caret-color: var(--md-sys-color-primary),
+    trailing-icon-color: var(--color-icon-neutral-muted-default),
+    leading-icon-color: var(--color-icon-neutral-muted-default),
+
+    error-text-color: var(--color-text-error),
+    filled-error-label-text-color: var(--color-text-neutral-muted-default),
+    filled-error-hover-label-text-color: var(--color-text-neutral-muted-default),
+    filled-error-focus-label-text-color: var(--color-text-neutral-muted-default),
+    filled-error-caret-color: var(--color-border-error),
+    filled-error-active-indicator-color: var(--color-border-error),
+    error-trailing-icon-color:  var(--color-icon-neutral-muted-default),
+    error-hover-trailing-icon-color: var(--color-icon-neutral-muted-default),
+    error-focus-trailing-icon-color: var(--color-icon-neutral-muted-default),
+
+    // background:  var(--color-background-neutral-disabled)
+    filled-disabled-label-text-color: var(--color-text-ondisabled),
+    filled-disabled-input-text-color: var(--color-text-ondisabled),
+    disabled-input-text-placeholder-color: var(--color-text-ondisabled),
+    filled-disabled-active-indicator-color: var(--color-border-disabled),
+    disabled-leading-icon-color: var(--color-icon-ondisabled),
+    disabled-trailing-icon-color: var(--color-icon-ondisabled),
+
+    state-layer-color: var(--color-background-neutral-hover),
+    hover-state-layer-opacity: 0.5,
+    focus-state-layer-opacity: 1.0,
+    
+    select-option-text-color: var(--color-text-primary-onprimarymuted),
+    select-disabled-option-text-color: var(--color-text-ondisabled),
+    enabled-select-arrow-color:  var(--color-icon-neutral-onneutral),
+    disabled-select-arrow-color: var(--color-icon-ondisabled),
+
+  ));
+
+  // --mdc-filled-text-field-container-color: var(--color-background-neutral-muted-default);
+}
+
+ngt-input-field .mat-mdc-form-field .mat-mdc-text-field-wrapper {
+  padding-left: var(--spacing-gap-component-standard, 8px);
+  padding-right: var(--spacing-padding-component-minimal, 4px);
+}
+ngt-input-field .mdc-floating-label{
+  width: 100%;
+}
+ngt-input-field .mat-mdc-form-field .mat-mdc-form-field-flex{
+  gap: var(--spacing-gap-component-standard, 8px);
+}
+
+ngt-input-field .mat-mdc-form-field-icon-prefix>.mat-icon,
+ngt-input-field .mat-mdc-form-field-icon-suffix>.mat-icon{
+  padding: 0px;
+}
+ngt-input-field .mat-mdc-form-field-icon-prefix{
+  padding: 0px; 
+}
+ngt-input-field .mat-mdc-form-field-icon-suffix{
+  padding: var(--spacing-padding-component-dense, 8px);
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.ngt-input-small {
+  --mat-form-field-container-height: height: var(--size-comp-XS, 40px);
+  --mat-form-field-container-vertical-padding: 10px; // only for textfields without label 
+  --mat-form-field-filled-with-label-container-padding-top: 16px; // only for textfields with label, default: 24px;
+  --mat-form-field-filled-with-label-container-padding-bottom: 8px; // only for textfields with label, default: 8px;
+}
+
+ngt-input-field .mat-mdc-form-field-text-suffix{
+  padding-right: var(--spacing-padding-component-dense, 8px);
+}
+
+// readonly view
+.ngt-input-readonly {
+  --mdc-filled-text-field-disabled-container-color: none;
+  --mdc-filled-text-field-disabled-label-text-color: var(--color-text-neutral-muted-default);
+  --mdc-filled-text-field-disabled-input-text-color: var(--color-text-neutral-default);
+  --mdc-filled-text-field-disabled-active-indicator-color: var(--color-border-neutral-default);
+
+  :not(.mat-mdc-select-placeholder){
+      // placeholder for default inputs, label for small inputs
+      --mat-select-disabled-trigger-text-color: var(--color-text-neutral-default); 
+  }
+  .mat-mdc-select-placeholder{
+      --mat-select-disabled-trigger-text-color: var(--color-text-neutral-muted-default); 
+  }
+}
+
+ngt-select-dropdown {
+  .mat-mdc-text-field-wrapper.mdc-text-field{
+    padding: 0px var(--spacing-padding-component-dense, 8px);
+  }
+  .mat-mdc-select-value{
+    --ngt-dropdown-padding-right: calc(var(--size-icon-l, 24px) + var(--spacing-gap-layout-standard, 8px));
+    padding-right: var(--ngt-dropdown-padding-right);
+  }
+}
+
+.mat-form-field-disabled{
+  color: var(--color-text-ondisabled);
+}

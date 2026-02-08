@@ -1,0 +1,16 @@
+
+<mat-icon>{{ matIcon() }}</mat-icon>
+
+@if (navbarService.expanded()) {
+  <div class="label">{{ label() }}</div>
+
+  <div class="flex-grow"></div>
+  
+  @if (count() !== undefined) {
+    <ngt-badge scale="small">{{ count() }}</ngt-badge>
+  }
+
+  @if (status() !== undefined) {
+    <ngt-badge scale="small" [matIcon]="statusIcon()" [status]="status()!"></ngt-badge>
+  }
+}

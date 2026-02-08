@@ -1,0 +1,32 @@
+@use '@angular/material' as mat;
+
+// Customize the entire app. Change :root to your selector if you want to scope the styles.
+:root, .dark-mode, .light-mode {
+    --mat-select-panel-background-color: var(--color-background-container-overlay);
+
+  @include mat.select-overrides((
+    panel-background-color: var(--color-background-container-overlay),
+
+    trigger-text-font:  var(--primitives-global-font-fontfamily, Inter), 
+    trigger-text-size: var(--size-fontsize-m, 16px),
+    trigger-text-weight: var(--primitives-global-font-fontweightregular, 400),
+    trigger-text-line-height: var(--primitives-global-font-lineheightmedium, 150%),
+    enabled-trigger-text-color:  var(--color-text-neutral-onneutral), // color of value in select textfield
+    placeholder-text-color: var(--color-text-neutral-muted-default),
+
+    enabled-arrow-color: var(--md-sys-color-on-surface),
+    focused-arrow-color: var(--md-sys-color-on-surface),
+
+    disabled-trigger-text-color: var(--color-text-ondisabled),
+    disabled-arrow-color: var(--color-text-ondisabled),
+
+    invalid-arrow-color: var(--color-icon-error),
+    // arrow-transform: rotateZ(180deg),
+  ));
+}
+
+div.mat-mdc-select-panel {
+    padding: var(--spacing-padding-component-dense, 8px) 0px;
+    border-radius: var(--size-radius-comp, 4px);
+    box-shadow: 0px 1px 10px 0px rgba(0, 0, 0, 0.12), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 2px 4px -1px rgba(0, 0, 0, 0.20);
+}

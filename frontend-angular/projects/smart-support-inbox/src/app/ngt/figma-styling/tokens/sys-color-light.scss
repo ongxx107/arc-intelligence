@@ -1,0 +1,82 @@
+/* mapping figma primitive to component tokens */
+@mixin sys-color-light {
+  --md-sys-color-primary: var(--color-branding-primary-main);
+  --md-sys-color-on-primary: var(--color-branding-primary-contrast);
+  --md-sys-color-primary-container: var(--color-branding-primary-main);
+  --md-sys-color-on-primary-container: var(--md-ref-primary-primary10);
+  --md-sys-color-primary-fixed: var(--md-ref-primary-primary90);
+  --md-sys-color-on-primary-fixed: var(--md-ref-primary-primary10);
+  --md-sys-color-primary-fixed-dim: var(--md-ref-primary-primary80);
+  --md-sys-color-on-primary-fixed-variant: var(--md-ref-primary-primary30);
+
+  --md-sys-color-secondary: var(--color-background-primary-muted-default);
+  --md-sys-color-on-secondary: var(--color-text-primary-onprimarymuted);
+  --md-sys-color-secondary-container: var(--color-background-primary-muted-default);
+  --md-sys-color-on-secondary-container: var(---color-text-primary-onprimarymuted);
+  --md-sys-color-secondary-fixed: var(--md-ref-secondary-secondary10);
+  --md-sys-color-on-secondary-fixed: var(--md-ref-secondary-secondary10);
+  --md-sys-color-secondary-fixed-dim: var(--md-ref-secondary-secondary80);
+  --md-sys-color-on-secondary-fixed-variant: var(--md-ref-secondary-secondary30);
+
+  --md-sys-color-tertiary: var(--md-ref-tertiary-tertiary40);
+  --md-sys-color-on-tertiary: var(--color-text-primary-onprimarymuted);
+  --md-sys-color-tertiary-container: var(--color-background-container-default);
+  --md-sys-color-on-tertiary-container: var(--md-ref-tertiary-tertiary10);
+  --md-sys-color-tertiary-fixed: var(--md-ref-tertiary-tertiary90);
+  --md-sys-color-on-tertiary-fixed: var(--md-ref-tertiary-tertiary10);
+  --md-sys-color-tertiary-fixed-dim: var(--md-ref-tertiary-tertiary80);
+  --md-sys-color-on-tertiary-fixed-variant: var(--md-ref-tertiary-tertiary30);
+
+  --md-sys-color-error: var(--color-signal-error-main);
+  --md-sys-color-on-error: var(--color-signal-error-contrast);
+  --md-sys-color-error-container: var(--color-signal-error-contrast);
+  --md-sys-color-on-error-container: var(--color-signal-error-main);
+
+  --md-sys-color-outline: var(--color-border-primary-default);
+  --md-sys-color-surface: var(--color-background-container-default);
+  --md-sys-color-on-surface: var(--color-text-neutral-default);
+  --md-sys-color-surface-variant: var(--color-background-neutral-muted-default);
+  --md-sys-color-on-surface-variant: var(--color-text-neutral-muted-default);
+  --md-sys-color-inverse-surface: var(--md-ref-neutral-neutral20);
+  --md-sys-color-inverse-on-surface: var(--md-ref-neutral-neutral95);
+  --md-sys-color-inverse-primary: var(--md-ref-primary-primary80);
+  --md-sys-color-shadow: var(--md-ref-neutral-neutral0);
+  --md-sys-color-surface-tint: var(--md-ref-primary-primary40);
+  --md-sys-color-outline-variant: var(--color-branding-primary-dimmed);
+  --md-sys-color-scrim: var(--md-ref-neutral-neutral0);
+  --md-sys-color-surface-container-highest: var(--md-ref-neutral-neutral90);
+  --md-sys-color-surface-container-high: var(--md-ref-neutral-neutral92);
+  --md-sys-color-surface-container: var(--md-ref-neutral-neutral94);
+  --md-sys-color-surface-container-low: var(--md-ref-neutral-neutral96);
+  --md-sys-color-surface-container-lowest: var(--md-ref-neutral-neutral100);
+  --md-sys-color-surface-bright: var(--md-ref-neutral-neutral98);
+  --md-sys-color-surface-dim: var(--md-ref-neutral-neutral87);
+  --md-sys-color-background: var(--md-sys-color-surface);
+  --md-sys-color-on-background: var(--md-sys-color-on-surface);
+
+  --ngt-primary-hover-opacity: 0.06;
+  --ngt-primary-focus-opacity: 0.09;
+  --ngt-primary-active-opacity: 0.26;
+
+  --ngt-primary-muted-hover-opacity: 0.03;
+  --ngt-primary-muted-focus-opacity: 0.06;
+  --ngt-primary-muted-active-opacity: 0.09;
+
+  --ngt-neutral-hover-opacity: 0.03;
+  --ngt-neutral-focus-opacity: 0.06;
+  --ngt-neutral-active-opacity: 0.09; 
+
+  --ngt-tertiary-hover-background-color: rgb(from color-mix(in srgb,var(--color-background-primary-muted-default), var(--color-background-primary-muted-hover))  r g b / 100%);
+  --ngt-tertiary-focus-background-color: rgb(from color-mix(in srgb,var(--color-background-primary-muted-default), var(--color-background-primary-muted-focus))  r g b / 100%);
+  --ngt-tertiary-active-background-color: rgb(from color-mix(in srgb,var(--color-background-primary-muted-default), var(--color-background-primary-muted-active))  r g b / 100%);
+
+  --ngt-secondary-active-background-color: rgb(from color-mix(in srgb,var(--color-background-primary-muted-default), var(--color-background-primary-muted-active))  r g b / 100%);
+
+  --ngt-primary-active-background-color: color-mix(in srgb,var(--color-background-primary-default), var(--color-background-primary-active));
+  // --ngt-primary-active-background-color: rgb(from color-mix(in srgb,var(--color-background-primary-default), var(--color-background-primary-active))  r g b / 100%);
+
+  --ngt-color-transparent: rgba(0,0,0,0);
+
+  --ngt-shadow-none: 0px 0px 0px 0px rgba(0, 0, 0, 0.0);
+  --ngt-shadow-button-hover: 0px 0px 6px 0px rgba(8, 7, 7, 0.6);
+}

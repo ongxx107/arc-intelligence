@@ -1,0 +1,44 @@
+// needed because otherwise the styles are not added to mat-icons defined as badge content
+ngt-badge .ngt-medium-badge .mat-icon{
+    height: var(--size-icon-s, 18px);
+    width: var(--size-icon-s, 18px);
+    font-size: var(--size-icon-s, 18px);
+    line-height: var(--size-icon-s, 18px);
+    align-self: baseline; // center
+}
+ngt-badge .ngt-small-badge .mat-icon{
+    height: 14px;
+    width: 14px;
+    font-size: 14px;
+    line-height: 14px;
+    align-self: baseline;
+}
+
+.ngt-status-error{
+    --mat-badge-background-color: var(--color-signal-error-main, #FF5900);
+    --mat-badge-text-color: var(--color-signal-error-contrast);
+}
+
+.ngt-status-warn{
+    --mat-badge-background-color: var(--color-signal-warning-main, #FFC600);
+    --mat-badge-text-color: var(--color-signal-warning-contrast);
+}
+
+.ngt-status-success{
+    --mat-badge-background-color: var(--color-signal-success-main, #44AF66);
+    --mat-badge-text-color: var(--color-signal-success-contrast);
+}
+
+.ngt-status-info{
+    --mat-badge-background-color: var(--color-signal-info-main, #72B4FF);
+    --mat-badge-text-color: var(--color-signal-info-contrast);
+}
+
+.ngt-status-neutral{
+    --mat-badge-background-color: var(--color-signal-neutral-main);
+    --mat-badge-text-color: var(--color-signal-neutral-contrast);
+}
+
+.ngt-disabled-badge{
+    opacity: 0.33;
+}

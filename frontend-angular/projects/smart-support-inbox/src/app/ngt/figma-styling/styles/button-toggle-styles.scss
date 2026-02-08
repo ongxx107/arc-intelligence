@@ -1,0 +1,33 @@
+@use '@angular/material' as mat;
+
+:root, .light-mode, .dark-mode{
+  @include mat.button-toggle-overrides((
+      label-text-font:  var(--primitives-global-font-fontfamily, Inter),
+      label-text-size: var(--size-font-s, 14px),
+      label-text-weight: var(--primitives-global-font-fontweightregular, 400),
+      shape: var(--size-radius-comp, 4px),
+      height: var(--size-comp-xs, 40px),
+      divider-color: var(--color-border-neutral-default),
+      background-color: var(--ngt-transparent),
+      text-color: var(--color-text-primary-onprimarymuted),
+      selected-state-background-color: var(--color-background-isselected), 
+      selected-state-text-color: var(--color-text-primary-onprimary),
+      disabled-selected-state-background-color: var(--ngt-transparent),
+      disabled-selected-state-text-color: var(--color-text-ondisabled),
+      disabled-state-background-color: var(--ngt-transparent),
+      disabled-state-text-color: var(--color-text-ondisabled),
+      state-layer-color: rgb( from var(--color-background-primary-active) r g b / 100%),
+      hover-state-layer-opacity: var(--ngt-primary-muted-hover-opacity),
+      focus-state-layer-opacity: var(--ngt-primary-muted-focus-opacity),
+  ));
+
+  mat-button-toggle:not(.mat-button-toggle-checked):hover, 
+  mat-button-toggle:not(.mat-button-toggle-checked):focus-within{ // focus registers within the child button element
+    background-color: var(--color-background-primary-muted-default);
+  }
+
+  .mat-button-toggle-appearance-standard .mat-button-toggle-label-content{
+    padding: 0px 0px; //implemented by margin indirectly or they would add up
+    margin: 0px  var(--spacing-gap-component-standard, 8px);
+  }
+}

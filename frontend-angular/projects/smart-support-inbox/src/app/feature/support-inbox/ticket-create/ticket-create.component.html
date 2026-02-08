@@ -1,0 +1,36 @@
+<div class="create-overlay" (click)="$event.stopPropagation()">
+  <div class="create-header">
+    <div class="title-wrap">
+      <h2 class="create-title">Create Ticket</h2>
+    </div>
+
+
+  </div>
+
+  <div class="create-content">
+    <div class="form-column">
+      <div class="group">
+        <div class="group-title">Ticket</div>
+
+        <ngt-input-field [label]="'Subject'" [(value)]="subject" width="max" style="width: 100%" />
+        <ngt-input-field [label]="'Sender email'" [(value)]="from_email" width="max" style="width: 100%" />
+        <ngt-input-field [label]="'Message body'" [(value)]="message" width="max" style="width: 100%" />
+
+        @if (error()) {
+          <div class="error">{{ error() }}</div>
+        }
+      </div>
+
+      <div class="actions-row">
+        <ngt-button styling="secondary" (ngtClick)="close.emit()">
+          <mat-icon>close</mat-icon>
+          Close
+        </ngt-button>
+        <ngt-button styling="primary" [disabled]="!canSubmit()" (ngtClick)="create()">
+          <mat-icon>send</mat-icon>
+          Create
+        </ngt-button>
+      </div>
+    </div>
+  </div>
+</div>

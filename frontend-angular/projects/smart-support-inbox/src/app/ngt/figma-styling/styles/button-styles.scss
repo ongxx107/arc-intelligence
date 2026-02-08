@@ -1,0 +1,7 @@
+
+span.mdc-button__label {
+  display: flex;
+  align-items: center;
+  flex-direction: row;
+  gap: var(--spacing-gap-component-standard, 8px);
+}

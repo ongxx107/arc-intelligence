@@ -1,0 +1,11 @@
+{
+	"plugin": [ "typedoc-plugin-missing-exports", "typedoc-plugin-coverage" ],
+	"out": "./docs",
+	"entryPoints": [
+		"./projects/smart-support-inbox/src/main.ts",
+		"./projects/smart-support-inbox/src/app/app.component.ts"
+	],
+	"jsDocCompatibility": true,
+	"alwaysCreateEntryPointModule": true,
+	"cleanOutputDir": true
+}

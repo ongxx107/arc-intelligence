@@ -1,0 +1,1 @@
+export type NgtStatus = "error"|"warn"|"success"|"info"|"neutral";

@@ -1,0 +1,40 @@
+.ngt-container-standard{
+    display: inline-flex;
+    flex-direction: column;
+    background-color:  var(--color-background-container-ondefault);
+    padding: var(--spacing-padding-component-standard, 16px);
+    align-items: flex-start;
+    gap: var(--spacing-gap-layout-standard, 8px);
+    flex-shrink: 0;
+}
+
+.ngt-background-container{
+  background-color:  var(--color-background-container-ondefault);
+}
+
+.ngt-corner-round{
+  border-radius: var(--size-radius-comp, 4px);
+}
+
+.ngt-border-dashed-neutral{ 
+    border: 1px dashed var(--color-border-neutral-default);
+}
+
+.ngt-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  min-width: max-content;
+  justify-content: center;
+  cursor: pointer;
+  padding: var(--spacing-padding-component-dense, 8px) var(--spacing-padding-component-standard, 16px);
+  min-height: var(--size-comp-XS, 40px);
+  border-radius: var(--size-radius-comp, 4px);
+  background: var(--color-background-neutral-muted-default, rgba(0, 0, 0, 0.03));
+}
+
+.ngt-card.ngt-card-hover{
+  &:hover:not(:disabled){
+    background: linear-gradient(0deg, var(--color-background-neutral-hover, rgba(0, 0, 0, 0.03)) 0%, var(--color-background-neutral-hover, rgba(0, 0, 0, 0.03)) 100%), var(--color-background-neutral-muted-default);
+  }
+}

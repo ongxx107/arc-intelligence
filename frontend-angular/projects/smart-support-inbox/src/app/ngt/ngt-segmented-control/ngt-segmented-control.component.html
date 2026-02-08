@@ -1,0 +1,16 @@
+<mat-button-toggle-group #ngttogglegroup 
+    [vertical]="vertical()" [multiple]="multiple()" 
+    [value]="value()" (change)="value.set($event.value)" [disabled]="disabled()" 
+    hideSingleSelectionIndicator hideMultipleSelectionIndicator>
+    <!-- (valueChange) or [(value)] causes infinite change detection errors in mat-button-toggle-group -->
+    @for(button of buttons(); track button.key){
+        <mat-button-toggle [value]="button.key">
+            @if(button.matIcon){
+                <mat-icon>{{button.matIcon}}</mat-icon>
+            }
+            @if(button.label){
+                {{button.label}}
+            }
+        </mat-button-toggle>
+    }
+</mat-button-toggle-group>

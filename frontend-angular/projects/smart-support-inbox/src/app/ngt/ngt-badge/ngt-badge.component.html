@@ -1,0 +1,9 @@
+<div [class]="badgeClass()">
+    @if ((matIcon() || svgIcon()) && iconPosition() !=='trailing' ) {
+        <mat-icon svgIcon="{{svgIcon()? svgIcon() : null}}">{{matIcon()? matIcon(): null}}</mat-icon>
+    }
+    <ng-content></ng-content>
+    @if ((matIcon() || svgIcon()) && iconPosition() ==='trailing' ) {
+        <mat-icon iconPositionEnd svgIcon="{{svgIcon()? svgIcon() : null}}">{{matIcon()? matIcon(): null}}</mat-icon>
+    }
+</div>

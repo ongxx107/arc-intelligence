@@ -1,0 +1,8 @@
+<ngt-autocomplete-dropdown #ngtauto [(value)]="value" 
+  [label]="label()" matIconPrefix="search"
+  [matIcon]="ngtauto.ngtInput()!.focusedDebounced() && hasValue()? 'close': 'empty'"
+  (iconClick)="ngtauto.ngtInput()!.focusedDebounced()? value.set(''): null"
+  [scale]="scale()" [width]="width()" 
+  [mode]="mode()"  
+  [options]="options()"
+></ngt-autocomplete-dropdown>
